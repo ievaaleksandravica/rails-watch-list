@@ -1,0 +1,10 @@
+  <% @lists.each do |list| %>
+    <div class="col-sm-6 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <img class="card-img-top" src="https://source.unsplash.com/random/800x400" alt="Card image cap">
+          <%= link_to list.name, list_path(list) %></p>
+        </div>
+      </div>
+    </div>
+  <% end  %>
