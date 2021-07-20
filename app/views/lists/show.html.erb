@@ -1,4 +1,13 @@
-  <h1 class="text-center"><%= @list.name %></h1>
+<div id="carouselExampleSlidesOnly" class="mb-3 carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100"%>
+    </div>
+  </div>
+</div>
+
+
+<h1 class="text-center"><%= @list.name %></h1>
 
 <div class="row">
     <% @bookmarks.each do |bookmark| %>
