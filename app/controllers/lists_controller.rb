@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :find_list, only: [ :show ]
+  before_action :find_list, only: [ :show, :destroy ]
 
   def index
     @lists = List.all
@@ -12,7 +12,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to lists_path
+      redirect_to root_path
     else
       render :new
     end
@@ -20,6 +20,11 @@ class ListsController < ApplicationController
 
   def show
     @bookmarks = Bookmark.where(list_id: params[:id])
+  end
+
+  def destroy
+    @list.destroy
+    redirect_to root_path
   end
 
   private
